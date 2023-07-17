@@ -1,0 +1,28 @@
+{
+    "name": "Getting Started Example",
+    "version": "1.0",
+    "description": "Build an Extension!",
+    "manifest_version": 2,
+    "permissions": [
+        "bookmarks",
+        "storage",
+        "declarativeContent",
+        "activeTab"
+    ],
+    "background": {
+        "scripts": [
+            "src/background/index.js"
+        ],
+        "persistent": false
+    },
+    "page_action": {
+        "default_popup": "src/popup/index.html",
+        "default_icon": {
+            "16": "images/logo.png",
+            "32": "images/logo.png",
+            "48": "images/logo.png",
+            "128": "images/logo.png"
+        }
+    },
+    "options_page": "src/options/index.html"
+}
