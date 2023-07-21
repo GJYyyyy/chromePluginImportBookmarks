@@ -1,19 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
     <style>
-        button {
-            height: 30px;
-            width: 30px;
-            outline: none;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 12px;
+            width: 300px;
+        }
+
+        p {
+            display: flex;
+            align-items: center;
+        }
+
+        #importProgreessing,
+        #clearProgreessing,
+        #deleteRepeatProgreessing {
+            height: 14px;
+            border: 1px solid black;
+        }
+
+        #importProgreessing>*,
+        #clearProgreessing>*,
+        #deleteRepeatProgreessing>* {
+            display: block;
+            height: 100%;
+            width: 0%;
+            background-color: green;
+        }
+
+        .question {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 18px;
+            height: 18px;
+            margin: 0 2px;
+            border: 1px solid black;
+            border-radius: 50%;
+            cursor: help;
+            font-size: 12px;
         }
     </style>
 </head>
 
 <body>
-    <button id="changeColor"></button>
-    <script src="index.js"></script>
+    <h2>书签导入</h2>
+    <hr>
+    <p>当前书签总数：<span id="bookmarksAllCount"></span></p>
+    <p>当前书签分组总数：<span id="bookmarksGroupAllCount"></span></p>
+    <p>当前重复书签总数<span class="question" title="这里只计量url重复的书签">?</span>：<span id="bookmarksRepeatAllCount"></span></p>
+    <hr>
+    <p><label for="importBookmarksInput">导入合并书签</label></p>
+    <p><input type="file" multiple id="importBookmarksInput" /></p>
+    <p id="importProgreessing">
+        <span></span>
+    </p>
+    <hr>
+    <p><label for="deleteRepeatBtn">删除重复书签<span class="question" title="这里会删除url重复并且title也重复的书签">?</span></label></p>
+    <p><button id="deleteRepeatBtn">去重</button></p>
+    <p id="deleteRepeatProgreessing">
+        <span></span>
+    </p>
+    <hr>
+    <p><label for="clearBookmarksBtn">清除所有书签</label></p>
+    <p><button id="clearBookmarksBtn">清除</button></p>
+    <p id="clearProgreessing">
+        <span></span>
+    </p>
 </body>
+<script src="BookmarksCURD.class.js"></script>
+<script src="BookmarksBusiness.class.js"></script>
+<script src="index.js"></script>
 
 </html>
